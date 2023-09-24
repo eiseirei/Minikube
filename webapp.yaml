@@ -20,7 +20,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: webapp
-          image: ezhov-server
+          image: ezhov_server
           ports:
             - name: http
               containerPort: 80
