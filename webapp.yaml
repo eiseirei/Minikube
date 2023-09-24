@@ -53,7 +53,7 @@ spec:
       volumes:
         - name: apache-initdir
           hostPath:
-            path: src/
+            path: /run/desktop/mnt/host/c/docker/src
             type: Directory
 
 ---
