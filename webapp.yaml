@@ -21,6 +21,7 @@ spec:
       containers:
         - name: webapp
           image: ezhov_server
+          imagePullPolicy: Never
           ports:
             - name: http
               containerPort: 80
