@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,20 +23,21 @@ spec:
           ports:
             - containerPort: 3306
               name: mysql
-      volumeMounts:
-        - name: mysql-initdb
-          mountPath: /docker-entrypoint-initdb.d
+          volumeMounts:
+            - name: mysql-initdb
+              mountPath: /docker-entrypoint-initdb.d
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: root_password
       volumes:
         - name: mysql-initdb
           hostPath:
             path: mysql-initdb/
             type: Directory
-      env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: root_password
+
 ---
 apiVersion: v1
 kind: Service

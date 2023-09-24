@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,14 +20,6 @@ spec:
           image: ezhov-server
           ports:
             - containerPort: 80
-      volumeMounts:
-        - name: apache-initdir
-          mountPath: /var/www/html
-      volumes:
-        - name: apache-initdir
-          hostPath:
-            path: src/
-            type: Directory
           env:
             - name: username
               valueFrom:
@@ -48,6 +41,15 @@ spec:
                 configMapKeyRef:
                   name: mongo-config
                   key: mongo-url
+          volumeMounts:
+            - name: apache-initdir
+              mountPath: /var/www/html
+          volumes:
+            - name: apache-initdir
+              hostPath:
+                path: src/
+                type: Directory
+
 ---
 apiVersion: v1
 kind: Service
