@@ -20,6 +20,9 @@ spec:
           image: ezhov-server
           ports:
             - containerPort: 80
+          volumeMounts:
+            - name: apache-initdir
+              mountPath: /var/www/html
           env:
             - name: username
               valueFrom:
@@ -41,14 +44,11 @@ spec:
                 configMapKeyRef:
                   name: mongo-config
                   key: mongo-url
-          volumeMounts:
-            - name: apache-initdir
-              mountPath: /var/www/html
-          volumes:
-            - name: apache-initdir
-              hostPath:
-                path: src/
-                type: Directory
+      volumes:
+        - name: apache-initdir
+          hostPath:
+            path: src/
+            type: Directory
 
 ---
 apiVersion: v1
