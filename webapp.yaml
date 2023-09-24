@@ -19,17 +19,30 @@ spec:
           image: ezhov-server
           ports:
             - containerPort: 80
+      volumeMounts:
+        - name: apache-initdir
+          mountPath: /var/www/html
+      volumes:
+        - name: apache-initdir
+          hostPath:
+            path: src/
+            type: Directory
           env:
-            - name: USER_NAME
+            - name: username
               valueFrom:
                 secretKeyRef:
-                  name: mongo-secret
+                  name: mysql-secret
                   key: username
-            - name: USER_PWD
+            - name: password
               valueFrom:
                 secretKeyRef:
-                  name: mongo-secret
+                  name: mysql-secret
                   key: password
+            - name: database
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: database
             - name: DB_URL
               valueFrom:
                 configMapKeyRef:
@@ -48,4 +61,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 8080
+      nodePort: 8000
