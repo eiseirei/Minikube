@@ -28,6 +28,7 @@ spec:
           volumeMounts:
             - name: mysql-initdb
               mountPath: /docker-entrypoint-initdb.d
+              readOnly: true
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
@@ -37,9 +38,8 @@ spec:
       volumes:
         - name: mysql-initdb
           hostPath:
-            path: /mnt/e/docker/mysql-initdb
+            path: /mnt/host/c/docker/mysql-initdb
             type: Directory
-
 ---
 apiVersion: v1
 kind: Service

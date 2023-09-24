@@ -30,6 +30,7 @@ spec:
           volumeMounts:
             - name: apache-initdir
               mountPath: /var/www/html
+              readOnly: true
           env:
             - name: username
               valueFrom:
@@ -54,9 +55,8 @@ spec:
       volumes:
         - name: apache-initdir
           hostPath:
-            path: /mnt/e/docker/src
+            path: /mnt/c/docker/src
             type: Directory
-
 ---
 apiVersion: v1
 kind: Service
