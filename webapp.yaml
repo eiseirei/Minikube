@@ -49,8 +49,8 @@ spec:
             - name: DB_URL
               valueFrom:
                 configMapKeyRef:
-                  name: mongo-config
-                  key: mongo-url
+                  name: mysql-config
+                  key: mysql-url
       volumes:
         - name: apache-initdir
           hostPath:
