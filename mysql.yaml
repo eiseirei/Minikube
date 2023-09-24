@@ -35,7 +35,7 @@ spec:
       volumes:
         - name: mysql-initdb
           hostPath:
-            path: mysql-initdb/
+            path: C:\Users\Seire\OneDrive\Документы\GitHub\Minikube\mysql-initdb\ 
             type: Directory
 
 ---
