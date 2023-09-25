@@ -38,7 +38,7 @@ spec:
       volumes:
         - name: mysql-initdb
           hostPath:
-            path: /mnt/host/c/docker/mysql-initdb
+            path: ./mysql-initdb
             type: Directory
 ---
 apiVersion: v1
