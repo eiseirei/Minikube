@@ -55,7 +55,7 @@ spec:
       volumes:
         - name: apache-initdir
           hostPath:
-            path: /mnt/c/docker/src
+            path: /mnt/src
             type: Directory
 ---
 apiVersion: v1
