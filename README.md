@@ -6,9 +6,13 @@
 minikube start --mount-string="C:/data:/mnt" --mount
 
 После чего загрузить конфигурационные файлы приложений:
+
 kubectl apply -f .\mysql-config.yaml
+
 kubectl apply -f .\mysql-secret.yaml
+
 kubectl apply -f .\mysql.yaml
+
 kubectl apply -f .\webapp.yaml
 
 Для доступа к веб-приложению выполнить команду:
