@@ -18,3 +18,7 @@ kubectl apply -f .\webapp.yaml
 Для доступа к веб-приложению выполнить команду:
 
 kubectl port-forward svc/webapp-service 8000:8000
+
+Теперь оно доступно по адресу:
+
+http://localhost:8000
