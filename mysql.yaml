@@ -38,7 +38,7 @@ spec:
       volumes:
         - name: mysql-initdb
           hostPath:
-            path: /mnt/mysql-initdb
+            path: /data/mysql-initdb
             type: Directory
 ---
 apiVersion: v1

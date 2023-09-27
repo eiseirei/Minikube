@@ -54,7 +54,7 @@ spec:
       volumes:
         - name: apache-initdir
           hostPath:
-            path: /mnt/src
+            path: /data/src
             type: Directory
 ---
 apiVersion: v1
