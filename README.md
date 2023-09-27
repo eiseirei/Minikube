@@ -3,7 +3,7 @@
 
 Для запуска выполнить следующую команду, предварительно создав папку data в корне диска C:\ и скопировав в неё папки src и mysql-initdb:
 
-minikube start --mount-string="C:/data:/mnt" --mount
+minikube start --mount-string="C:/data:/data" --mount
 
 После чего загрузить конфигурационные файлы приложений:
 
