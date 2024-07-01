@@ -1,9 +1,21 @@
 # Minikube
  
 
-Для запуска выполнить следующую команду, предварительно создав папку data в корне диска C:\ и скопировав в неё папки src и mysql-initdb:
+В начале необходимо создать образы через докер:
 
-minikube start --mount-string="C:\data:/data" --mount
+docker build -t ezhov_server -f Dockerfile-web .
+
+docker build -t ezhov_db -f Dockerfile-DB .
+
+После этого запустить minikube:
+
+minikube start
+
+После чего загрузить образы из докера в minikube:
+
+minikube image load ezhov_server
+
+minikube image load ezhov_db
 
 После чего загрузить конфигурационные файлы приложений:
 
