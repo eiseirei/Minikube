@@ -26,10 +26,6 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
-          volumeMounts:
-            - name: apache-initdir
-              mountPath: /var/www/html
-              readOnly: true
           env:
             - name: username
               valueFrom:
@@ -51,11 +47,6 @@ spec:
                 configMapKeyRef:
                   name: mysql-config
                   key: mysql-url
-      volumes:
-        - name: apache-initdir
-          hostPath:
-            path: /data/src
-            type: Directory
 ---
 apiVersion: v1
 kind: Service

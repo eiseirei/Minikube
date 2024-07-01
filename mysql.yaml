@@ -20,26 +20,18 @@ spec:
       restartPolicy: Always
       containers:
         - name: mysql
-          image: mysql:5.7
+          image: ezhov_db
+          imagePullPolicy: Never
           ports:
             - name: mysql
               containerPort: 3306
               protocol: TCP
-          volumeMounts:
-            - name: mysql-initdb
-              mountPath: /docker-entrypoint-initdb.d
-              readOnly: true
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mysql-secret
                   key: root_password
-      volumes:
-        - name: mysql-initdb
-          hostPath:
-            path: /data/mysql-initdb
-            type: Directory
 ---
 apiVersion: v1
 kind: Service
